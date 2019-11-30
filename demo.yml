@@ -1,7 +1,10 @@
 ---
 - hosts: all
+  become: yes
+  become_method: sudo
+  remote_user: ansible
   tasks:
   - name: Ansible copy file to remote server
     copy:
-      src: ~/sample.txt
-      dest: /tmp 
+      src: /home/ansible/workspace/mvn/target/javaee7-simple-sample.war
+      dest: /opt/tomcat/webapps/ 
